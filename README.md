@@ -41,8 +41,6 @@ The game provides color-coded feedback for each question result and displays an 
 ![Game Screenshot](Screenshots/06.png)
 
 ## Flowchart of the Game Logic
-![Game [Main Flowchart](Flowchart/01.png)
-
 ```mermaid
 flowchart TD
     Start(["Start Program"]) --> InitSeed["Initialize Random Seed with time"]
