@@ -40,6 +40,47 @@ The game provides color-coded feedback for each question result and displays an 
 ## Screenshot
 ![Game Screenshot](Screenshots/06.png)
 
+## Flowchart of the Game Logic
+![Game [Main Flowchart](Flowchart/01.png)
+
+```mermaid
+flowchart TD
+    Start(["Start Program"]) --> InitSeed["Initialize Random Seed with time"]
+    InitSeed --> StartGame["Start The Game"]
+    StartGame --> Clear["Clear Screen and Set Color"]
+    Clear --> Welcome["Display Welcome Message"]
+    Welcome --> NumQ["Read Number of Questions"]
+    NumQ --> Level["Read Difficulty Level"]
+    Level --> OpType["Read Operation Type"]
+    OpType --> AskLoop["Repeat for each Question"]
+    AskLoop --> LoopStart["For i = 1 to NumQuestions"]
+    LoopStart --> AskQuestion["Ask Question"]
+    AskQuestion --> GenNum["Generate Numbers Based on Level"]
+    GenNum --> ChooseOp["Choose Operation"]
+    ChooseOp --> CalcRes["Calculate Correct Answer"]
+    CalcRes --> GetAnswer@{ label: "Get Player's Answer" }
+    GetAnswer --> CheckAns{"Is Answer Correct?"}
+    CheckAns -- Yes --> Correct@{ label: "Show 'Correct!' in Green" }
+    CheckAns -- No --> Wrong@{ label: "Show 'Wrong!' in Red + Show Correct Answer" }
+    Correct --> NextQ["NextQ"]
+    Wrong --> NextQ
+    NextQ -- Repeat --> LoopStart
+    AskLoop --> Summary["Display Quiz Summary"]
+    Summary --> PassFail{"Score >= 50%?"}
+    PassFail -- Yes --> Pass@{ label: "Show 'PASS' in Green" }
+    PassFail -- No --> Fail@{ label: "Show 'FAIL' in Red" }
+    Pass --> LoopPlay{"Play Again?"}
+    Fail --> LoopPlay
+    LoopPlay -- Yes --> StartGame
+    LoopPlay -- No --> End(["End Program"])
+
+    GetAnswer@{ shape: rect }
+    Correct@{ shape: rect }
+    Wrong@{ shape: rect }
+    Pass@{ shape: rect }
+    Fail@{ shape: rect }
+```
+
 ## Learning Objectives
 This project was developed to improve the following skills:
 - Designing user-friendly console-based quiz games.
