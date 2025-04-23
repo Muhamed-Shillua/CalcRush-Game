@@ -38,7 +38,7 @@ The game provides color-coded feedback for each question result and displays an 
 > **Note:** This game is designed to work on Windows due to the use of the `windows.h` library for color management in the console.
 
 ## Screenshot
-![Game Screenshot](Assets/06.png)
+![Game Screenshot](Screenshots/06.png)
 
 ## Learning Objectives
 This project was developed to improve the following skills:
